@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import "../css/search.css";
 import Weatherresult from "./Weatherresult";
 import ReactLoading from "react-loading";
+import London from "./London"
 
-const FEATURED_API = "https://api.weatherapi.com/v1/forecast.json?key=979bcb3167224872adb115058211210&q=London&days=3&aqi=no&alerts=no"
+
 
 function Search() {
   const [wheatherData, setWheatherData] = useState([]);
-  const [london, setLondon] = useState([])
+  
   const [inputValue, setInputValue] = useState("");
   const [cityName, setCityName] = useState("");
   const [error, setError] = useState(false);
@@ -17,14 +18,7 @@ function Search() {
   localStorage.removeItem("password","email");
 }
 
-useEffect(() => {
-  fetch(FEATURED_API)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    setLondon(data.forecast.forecastday);
-  });
-},[]);
+
 
   const citytext = (e) => {
     e.preventDefault();
@@ -65,22 +59,13 @@ useEffect(() => {
         />
         <button type="submit">Search</button>
       </form>
+      <London/>
       {!loading && error ? (
         <div className="wrong">you misspelled or City can’t find!...</div>
       ) : !loading ? (
         <div className="weatherresult">
-          <h2> next three days für {cityName} </h2>
-          <h2> London </h2>
-          {london.map((item, index) => (
-            <Weatherresult
-              key={index}
-              date={item.date}
-              icon={item.day.condition.icon}
-              condition={item.day.condition.text}
-              temp={item.day.avgtemp_c}
-              humidity={item.day.avghumidity}
-            />
-          ))}
+          <h2> {cityName} </h2>
+          
 
           {wheatherData.map((item, index) => (
             <Weatherresult
