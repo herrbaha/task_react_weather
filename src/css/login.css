@@ -1,0 +1,16 @@
+.Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8rem;
+
+}
+.mb-3{
+    width: 100%;
+}
+.login-btn{
+    background-color: #373b69 !important;
+    color: white;
+    border: none;
+
+}
