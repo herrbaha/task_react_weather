@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../css/search.css";
 import Weatherresult from "./Weatherresult";
 import ReactLoading from "react-loading";
 
+const FEATURED_API = "https://api.weatherapi.com/v1/forecast.json?key=979bcb3167224872adb115058211210&q=London&days=3&aqi=no&alerts=no"
+
 function Search() {
   const [wheatherData, setWheatherData] = useState([]);
+  const [london, setLondon] = useState([])
   const [inputValue, setInputValue] = useState("");
   const [cityName, setCityName] = useState("");
   const [error, setError] = useState(false);
@@ -13,6 +16,15 @@ function Search() {
  window.onbeforeunload = () => {
   localStorage.removeItem("password","email");
 }
+
+useEffect(() => {
+  fetch(FEATURED_API)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    setLondon(data);
+  });
+},[]);
 
   const citytext = (e) => {
     e.preventDefault();
