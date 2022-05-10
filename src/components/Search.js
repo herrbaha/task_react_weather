@@ -49,6 +49,7 @@ function Search() {
       <form className="search" onSubmit={handleSubmit}>
         <input
           type="text"
+          autoFocus
           placeholder="Search a City"
           value={inputValue}
           onChange={citytext}
@@ -59,7 +60,7 @@ function Search() {
         <div className="wrong">you misspelled or something went wrong...</div>
       ) : !loading ? (
         <div className="weatherresult">
-          <h2>{cityName} next three days </h2>
+          <h2> next three days für {cityName} </h2>
 
           {wheatherData.map((item, index) => (
             <Weatherresult

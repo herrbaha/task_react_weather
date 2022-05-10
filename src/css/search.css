@@ -6,44 +6,29 @@ body{
     background-color:#22254b;
     color:#fff;
     font-family: sans-serif;
-    margin: 0;
+    text-align: center;
     display: flex;
+    margin: 4rem;
     flex-direction: column;
    
 }
-header{
-    background-color:#373b69;
-    padding: 1rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-   
-
-}
 .search{
-    background-color: transparent;
-    border: 2px solid #22254b;
-    border-radius: 1.5rem;
-    color: #888aa0;
-    font-family: inherit;
-    font-size: 1.2rem;
-    padding: 0.5rem 1.5rem;
+    margin-bottom: 2rem;
+}
+.search input{
     outline: none;
-    width:100%;
-
-
+    width: 30%;
+    padding: 0.2rem;
+    border-radius: 5px;
 }
-.search-form{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-.search-btn{
-    border-radius: 0.5rem;
-    background-color: #22254b;
-    padding: 0.5rem;
-    color: white;
-    margin-top: 0.5rem;
-    text-decoration: none;
+.search button{
+    outline: none;
     border: none;
+    border-radius: 5px;
+    padding: 0.2rem;
+    margin-left: 0.2rem;
 }
+.weatherresult h2{
+    margin: 2rem; 
+}
+
