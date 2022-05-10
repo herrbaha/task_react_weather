@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../css/search.css";
 import Weatherresult from "./Weatherresult";
 import ReactLoading from "react-loading";
@@ -10,12 +10,9 @@ function Search() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    return () => {
-      localStorage.removeItem("password");
-      localStorage.removeItem("email");
-    };
-  }, []);
+ window.onbeforeunload = () => {
+  localStorage.removeItem("password","email");
+}
 
   const citytext = (e) => {
     e.preventDefault();
