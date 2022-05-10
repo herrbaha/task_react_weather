@@ -57,7 +57,7 @@ function Search() {
         <button type="submit">Search</button>
       </form>
       {!loading && error ? (
-        <div className="wrong">you misspelled or something went wrong...</div>
+        <div className="wrong">you misspelled or City can’t find!...</div>
       ) : !loading ? (
         <div className="weatherresult">
           <h2> next three days für {cityName} </h2>
