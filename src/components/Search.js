@@ -22,7 +22,7 @@ useEffect(() => {
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
-    setLondon(data);
+    setLondon(data.forecast.forecastday);
   });
 },[]);
 
@@ -70,6 +70,17 @@ useEffect(() => {
       ) : !loading ? (
         <div className="weatherresult">
           <h2> next three days für {cityName} </h2>
+          {london.map((item, index) => (
+            <Weatherresult
+              key={index}
+              date={item.date}
+              name={item.day.name}
+              icon={item.day.condition.icon}
+              condition={item.day.condition.text}
+              temp={item.day.avgtemp_c}
+              humidity={item.day.avghumidity}
+            />
+          ))}
 
           {wheatherData.map((item, index) => (
             <Weatherresult
