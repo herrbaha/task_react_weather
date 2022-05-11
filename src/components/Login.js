@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/login.css";
-// import useId from 'react-use-id';
 
 const Login = () => {
   // const id = useId();
