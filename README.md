@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-you can open this application from here (task-react-weather-i817w4xx8-herrbaha.vercel.app)
+you can open this application from here (https://task-react-weather-i817w4xx8-herrbaha.vercel.app)
 
 ## Available Scripts
 
