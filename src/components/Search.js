@@ -1,30 +1,23 @@
-import { useState} from "react";
+import { useState } from "react";
 import "../css/search.css";
 import Weatherresult from "./Weatherresult";
 import ReactLoading from "react-loading";
-import London from "./London"
-
-
+import London from "./London";
 
 function Search() {
   const [wheatherData, setWheatherData] = useState([]);
-  
   const [inputValue, setInputValue] = useState("");
   const [cityName, setCityName] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
- window.onbeforeunload = () => {
-  localStorage.removeItem("password","email");
-}
-
-
-
+  window.onbeforeunload = () => {
+    localStorage.removeItem("password", "email");
+  };
   const citytext = (e) => {
     e.preventDefault();
     setInputValue(e.target.value);
   };
-
   async function getdata(value) {
     setLoading(true);
     try {
@@ -46,7 +39,6 @@ function Search() {
     getdata(inputValue);
     setInputValue("");
   };
-
   return (
     <div className="wheather_container">
       <form className="search" onSubmit={handleSubmit}>
@@ -59,15 +51,13 @@ function Search() {
         />
         <button type="submit">Search</button>
       </form>
-      <London/>
+      <London />
       {!loading && error ? (
         <div className="wrong">you misspelled or City can’t find!...</div>
       ) : !loading ? (
         <div className="weatherresult">
           <h2> {cityName} </h2>
-          
-
-          {wheatherData.map((item, index) => (
+            {wheatherData.map((item, index) => (
             <Weatherresult
               key={index}
               date={item.date}
@@ -90,5 +80,4 @@ function Search() {
     </div>
   );
 }
-
 export default Search;
