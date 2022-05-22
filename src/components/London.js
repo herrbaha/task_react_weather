@@ -11,7 +11,6 @@ useEffect(() => {
   fetch(FEATURED_API)
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
     setLondon(data.forecast.forecastday);
   });
 },[]);
